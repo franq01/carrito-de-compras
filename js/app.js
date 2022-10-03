@@ -27,8 +27,28 @@ const agregarCurso = (e)=>{
 
 const agregarCarrito = curso =>{
     console.log(listadoCarrito);
+
+}
+const generaHTML = () => {
+    vaciarCarrito ();
+    listadoCarrito.forEach(curso => {
+        const row = document.createElement('tr');
+        const cursoHTML =`
+        <td>
+           <img src="${curso.imagen}" width=100>
+        </td>
+        <td> ${curso.nombre}</td>
+        <td> ${curso.precio}</td>
+        <td> ${curso.cantidad}</td>
+        `;
+        row.innerHTML = cursoHTML;
+        contenedorCarrito.appendChild(row);
+1    })
 }
 
+const vaciarCarrito = () =>{
+
+}
 const cargarEventListener = ()=>{
     /// agregar funcion de carga de cursos al carrito 
     listaCursos.addEventListener('clik', agregarCurso);
